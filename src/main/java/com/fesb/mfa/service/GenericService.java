@@ -6,7 +6,10 @@ import java.util.List;
 
 public interface GenericService {
     User findByUsername(String username);
+
     User addUser(User user);
 
     List<User> findAllUsers();
+
+    User login(String username, String password);
 }

@@ -25,4 +25,9 @@ public class SecurityController {
     public User addUser(@RequestBody User user){
         return userService.addUser(user);
     }
+
+    @RequestMapping(value ="/login", method = RequestMethod.POST)
+    public User login(@RequestBody User user){
+        return userService.login(user.getUsername(), user.getPassword());
+    }
 }
