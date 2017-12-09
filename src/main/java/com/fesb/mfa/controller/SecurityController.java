@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/security")
+@RequestMapping("api/security")
 public class SecurityController {
     @Autowired
     private GenericService userService;
