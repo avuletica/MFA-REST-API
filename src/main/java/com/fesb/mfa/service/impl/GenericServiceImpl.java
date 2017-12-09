@@ -22,4 +22,8 @@ public class GenericServiceImpl implements GenericService {
     public List<User> findAllUsers() {
         return (List<User>)userRepository.findAll();
     }
+
+    public User addUser(User user) {
+        return userRepository.save(user);
+    }
 }
