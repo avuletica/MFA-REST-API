@@ -3,10 +3,7 @@ package com.fesb.mfa.controller;
 import com.fesb.mfa.domain.User;
 import com.fesb.mfa.service.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +21,11 @@ public class SecurityController {
     @RequestMapping(value ="/user", method = RequestMethod.POST)
     public User addUser(@RequestBody User user){
         return userService.addUser(user);
+    }
+
+    @RequestMapping(value ="/user/{userName}", method = RequestMethod.GET)
+    public User getUser(@PathVariable("userName") String userName){
+        return userService.findByUsername(userName);
     }
 
     @RequestMapping(value ="/login", method = RequestMethod.POST)
