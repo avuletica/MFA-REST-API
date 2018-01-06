@@ -1,4 +1,4 @@
-package com.fesb.mfa.user;
+package com.fesb.mfa.user.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

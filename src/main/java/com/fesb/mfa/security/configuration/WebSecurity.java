@@ -1,5 +1,7 @@
-package com.fesb.mfa.security;
+package com.fesb.mfa.security.configuration;
 
+import com.fesb.mfa.security.filter.JWTAuthenticationFilter;
+import com.fesb.mfa.security.filter.JWTAuthorizationFilter;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,7 +15,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.context.annotation.Bean;
 
-import static com.fesb.mfa.security.SecurityConstants.SIGN_UP_URL;
+import static com.fesb.mfa.security.constants.SecurityConstants.SIGN_UP_URL;
 
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {

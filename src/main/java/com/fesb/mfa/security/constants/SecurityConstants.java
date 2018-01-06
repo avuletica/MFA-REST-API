@@ -1,4 +1,4 @@
-package com.fesb.mfa.security;
+package com.fesb.mfa.security.constants;
 
 public class SecurityConstants {
     public static final String SECRET = "SecretKeyToGenJWTs";

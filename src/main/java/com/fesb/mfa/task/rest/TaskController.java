@@ -1,5 +1,7 @@
-package com.fesb.mfa.task;
+package com.fesb.mfa.task.rest;
 
+import com.fesb.mfa.task.domain.Task;
+import com.fesb.mfa.task.domain.TaskRepository;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,7 @@
-package com.fesb.mfa.security;
+package com.fesb.mfa.security.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fesb.mfa.user.ApplicationUser;
+import com.fesb.mfa.user.domain.ApplicationUser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,10 +19,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import static com.fesb.mfa.security.SecurityConstants.EXPIRATION_TIME;
-import static com.fesb.mfa.security.SecurityConstants.HEADER_STRING;
-import static com.fesb.mfa.security.SecurityConstants.SECRET;
-import static com.fesb.mfa.security.SecurityConstants.TOKEN_PREFIX;
+import static com.fesb.mfa.security.constants.SecurityConstants.EXPIRATION_TIME;
+import static com.fesb.mfa.security.constants.SecurityConstants.HEADER_STRING;
+import static com.fesb.mfa.security.constants.SecurityConstants.SECRET;
+import static com.fesb.mfa.security.constants.SecurityConstants.TOKEN_PREFIX;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private AuthenticationManager authenticationManager;

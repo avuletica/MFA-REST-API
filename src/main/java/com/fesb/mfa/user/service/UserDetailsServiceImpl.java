@@ -1,5 +1,7 @@
-package com.fesb.mfa.user;
+package com.fesb.mfa.user.service;
 
+import com.fesb.mfa.user.domain.ApplicationUserRepository;
+import com.fesb.mfa.user.domain.ApplicationUser;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

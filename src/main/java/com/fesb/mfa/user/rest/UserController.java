@@ -1,5 +1,7 @@
-package com.fesb.mfa.user;
+package com.fesb.mfa.user.rest;
 
+import com.fesb.mfa.user.domain.ApplicationUser;
+import com.fesb.mfa.user.domain.ApplicationUserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,4 +1,4 @@
-package com.fesb.mfa.task;
+package com.fesb.mfa.task.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

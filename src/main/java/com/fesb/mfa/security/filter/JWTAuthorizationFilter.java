@@ -1,4 +1,4 @@
-package com.fesb.mfa.security;
+package com.fesb.mfa.security.filter;
 
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static com.fesb.mfa.security.SecurityConstants.HEADER_STRING;
-import static com.fesb.mfa.security.SecurityConstants.SECRET;
-import static com.fesb.mfa.security.SecurityConstants.TOKEN_PREFIX;
+import static com.fesb.mfa.security.constants.SecurityConstants.HEADER_STRING;
+import static com.fesb.mfa.security.constants.SecurityConstants.SECRET;
+import static com.fesb.mfa.security.constants.SecurityConstants.TOKEN_PREFIX;
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
