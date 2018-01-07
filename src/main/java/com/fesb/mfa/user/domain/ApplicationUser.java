@@ -13,7 +13,7 @@ public class ApplicationUser {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY,
+            fetch = FetchType.EAGER,
             mappedBy = "user")
     private Set<BackupCode> backupCodes = new HashSet<>();
 

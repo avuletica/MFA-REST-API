@@ -13,7 +13,7 @@ public class BackupCode {
     @Lob
     private String code;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_fk")
     private ApplicationUser user;
 

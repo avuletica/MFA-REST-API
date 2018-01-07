@@ -36,7 +36,6 @@ public class Application implements CommandLineRunner {
 
         ApplicationUser user = new ApplicationUser("test", "test");
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
 
         for (int i = 0; i < 10; i++) {
             Random rn = new Random();
@@ -50,6 +49,12 @@ public class Application implements CommandLineRunner {
         }
 
         userRepository.save(user);
+
+        userRepository.findAll();
+
+        ApplicationUser test = userRepository.findByUsername("test");
+
+        System.out.println(test.getBackupCodes());
 
     }
 }
