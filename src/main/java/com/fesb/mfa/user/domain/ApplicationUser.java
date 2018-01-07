@@ -1,9 +1,8 @@
 package com.fesb.mfa.user.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class ApplicationUser {
@@ -12,6 +11,20 @@ public class ApplicationUser {
     private long id;
     private String username;
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "user")
+    private Set<BackupCode> backupCodes = new HashSet<>();
+
+    public ApplicationUser() {
+
+    }
+
+    public ApplicationUser(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     public long getId() {
         return id;
@@ -31,5 +44,13 @@ public class ApplicationUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<BackupCode> getBackupCodes() {
+        return backupCodes;
+    }
+
+    public void setBackupCodes(Set<BackupCode> backupCodes) {
+        this.backupCodes = backupCodes;
     }
 }
