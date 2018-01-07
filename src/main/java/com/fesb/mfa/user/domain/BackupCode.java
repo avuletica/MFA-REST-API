@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "backup_codes")
 public class BackupCode {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,9 +14,8 @@ public class BackupCode {
     @Lob
     private String code;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_fk")
-    private ApplicationUser user;
+    @Column(name = "user_id")
+    private Integer userId;
 
     public BackupCode() {
 
