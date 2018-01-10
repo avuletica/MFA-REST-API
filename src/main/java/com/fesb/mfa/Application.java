@@ -34,7 +34,7 @@ public class Application implements CommandLineRunner {
         final int MAXIMUM_NUMBER = 999999;
         final int MINIMUM_NUMBER = 100000;
 
-        ApplicationUser user = new ApplicationUser("test", "test");
+        ApplicationUser user = new ApplicationUser("test", "test", "Ante", "Antic", "anteantic@gmail.com");
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
 
