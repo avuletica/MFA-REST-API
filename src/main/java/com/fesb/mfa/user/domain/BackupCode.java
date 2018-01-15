@@ -25,7 +25,6 @@ public class BackupCode {
         this.code = code;
     }
 
-
     public String getCode() {
         return code;
     }

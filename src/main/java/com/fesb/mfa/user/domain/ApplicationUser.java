@@ -22,6 +22,8 @@ public class ApplicationUser {
 
     private String lastName;
 
+    private Boolean backupCodeActive;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private Set<BackupCode> backupCodes = new HashSet<>();
@@ -36,6 +38,7 @@ public class ApplicationUser {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.backupCodeActive = false;
     }
 
     public long getId() {
@@ -88,5 +91,13 @@ public class ApplicationUser {
 
     public void setBackupCodes(Set<BackupCode> backupCodes) {
         this.backupCodes = backupCodes;
+    }
+
+    public Boolean getBackupCodeActive() {
+        return backupCodeActive;
+    }
+
+    public void setBackupCodeActive(Boolean backupCodeActive) {
+        backupCodeActive = backupCodeActive;
     }
 }
