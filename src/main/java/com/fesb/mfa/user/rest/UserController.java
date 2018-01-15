@@ -3,6 +3,8 @@ package com.fesb.mfa.user.rest;
 import com.fesb.mfa.user.domain.ApplicationUser;
 import com.fesb.mfa.user.domain.ApplicationUserRepository;
 import com.fesb.mfa.user.domain.BackupCode;
+import com.fesb.mfa.user.service.ApplicationUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +13,9 @@ import java.util.Set;
 @RestController
 @RequestMapping("/security")
 public class UserController {
+
+    @Autowired
+    private ApplicationUserService applicationUserService;
 
     private ApplicationUserRepository applicationUserRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -35,5 +40,10 @@ public class UserController {
     @GetMapping("/backupCodes/{userName}")
     public Set<BackupCode> getUserBackupCodes(@PathVariable String userName) {
         return applicationUserRepository.findByUsername(userName).getBackupCodes();
+    }
+
+    @GetMapping("/backupCodes/generate/{userName}")
+    public ApplicationUser generateUserBackupCodes(@PathVariable String userName) {
+        return applicationUserService.generateBackupCodes(userName);
     }
 }
