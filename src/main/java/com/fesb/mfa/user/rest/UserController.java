@@ -51,4 +51,9 @@ public class UserController {
     public ApplicationUser updateBackupCodeActiveState(@PathVariable String userName, @PathVariable Boolean state) {
         return applicationUserService.updateBackupCodeActiveState(userName, state);
     }
+
+    @PostMapping("/deleteBackupCode/{code}/{userName}")
+    public ApplicationUser deleteBackupCode(@PathVariable String code, @PathVariable String userName) {
+        return applicationUserService.deleteBackupCode(userName, code);
+    }
 }

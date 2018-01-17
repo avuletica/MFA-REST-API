@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
+import java.util.Set;
 
 @Service
 public class ApplicationUserServiceImpl implements ApplicationUserService {
@@ -43,6 +44,24 @@ public class ApplicationUserServiceImpl implements ApplicationUserService {
         ApplicationUser user = userRepository.findByUsername(username);
 
         user.setBackupCodeActive(state);
+
+        userRepository.save(user);
+
+        return user;
+    }
+
+    @Override
+    public ApplicationUser deleteBackupCode(String username, String code) {
+        ApplicationUser user = userRepository.findByUsername(username);
+        Set<BackupCode> backupCodes = user.getBackupCodes();
+        for (BackupCode backupCode : backupCodes) {
+            System.out.print("helloooo " + backupCode.getCode());
+            if (backupCode.getCode().equals(code)) {
+                user.getBackupCodes().remove(backupCode);
+                System.out.print("YEEA");
+                break;
+            }
+        }
 
         userRepository.save(user);
 
