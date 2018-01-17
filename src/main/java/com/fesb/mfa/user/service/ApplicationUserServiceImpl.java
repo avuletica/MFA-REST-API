@@ -19,6 +19,8 @@ public class ApplicationUserServiceImpl implements ApplicationUserService {
         final int MINIMUM_NUMBER = 100000;
         ApplicationUser user = userRepository.findByUsername(username);
 
+        user.getBackupCodes().clear();
+
         for (int i = 0; i < 10; i++) {
             Random rn = new Random();
             int range = MAXIMUM_NUMBER - MINIMUM_NUMBER + 1;
