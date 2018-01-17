@@ -98,6 +98,6 @@ public class ApplicationUser {
     }
 
     public void setBackupCodeActive(Boolean backupCodeActive) {
-        backupCodeActive = backupCodeActive;
+        this.backupCodeActive = backupCodeActive;
     }
 }

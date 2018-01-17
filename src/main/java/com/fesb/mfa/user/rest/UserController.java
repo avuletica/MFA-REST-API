@@ -46,4 +46,9 @@ public class UserController {
     public ApplicationUser generateUserBackupCodes(@PathVariable String userName) {
         return applicationUserService.generateBackupCodes(userName);
     }
+
+    @PostMapping("/updateBackupCodeActiveState/{state}/{userName}")
+    public ApplicationUser updateBackupCodeActiveState(@PathVariable String userName, @PathVariable Boolean state) {
+        return applicationUserService.updateBackupCodeActiveState(userName, state);
+    }
 }

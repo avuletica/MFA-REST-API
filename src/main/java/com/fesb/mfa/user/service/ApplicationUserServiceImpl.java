@@ -37,4 +37,15 @@ public class ApplicationUserServiceImpl implements ApplicationUserService {
         return user;
 
     }
+
+    @Override
+    public ApplicationUser updateBackupCodeActiveState(String username, Boolean state) {
+        ApplicationUser user = userRepository.findByUsername(username);
+
+        user.setBackupCodeActive(state);
+
+        userRepository.save(user);
+
+        return user;
+    }
 }
