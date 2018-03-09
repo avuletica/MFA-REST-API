@@ -47,13 +47,19 @@ public class UserController {
         return applicationUserService.generateBackupCodes(userName);
     }
 
-    @PostMapping("/updateBackupCodeActiveState/{state}/{userName}")
-    public ApplicationUser updateBackupCodeActiveState(@PathVariable String userName, @PathVariable Boolean state) {
-        return applicationUserService.updateBackupCodeActiveState(userName, state);
+    @GetMapping("/validateBackupCode/{code}/{userName}")
+    public Boolean validateBackupCode(@PathVariable String userName, @PathVariable String code) {
+        return applicationUserService.validateBackupCode(userName, code);
     }
 
-    @PostMapping("/deleteBackupCode/{code}/{userName}")
-    public ApplicationUser deleteBackupCode(@PathVariable String code, @PathVariable String userName) {
-        return applicationUserService.deleteBackupCode(userName, code);
+    @GetMapping("/twoFactorAuthenticationActiveState/{userName}")
+    public Boolean twoFactorAuthenticationActiveState(@PathVariable String userName) {
+        return applicationUserService.getTwoFactorAuthenticationActiveState(userName);
     }
+
+    @PostMapping("/updateTwoFactorAuthenticationActiveState/{state}/{userName}")
+    public ApplicationUser updateTwoFactorAuthenticationActiveState(@PathVariable String userName, @PathVariable Boolean state) {
+        return applicationUserService.updateTwoFactorAuthenticationActiveState(userName, state);
+    }
+
 }

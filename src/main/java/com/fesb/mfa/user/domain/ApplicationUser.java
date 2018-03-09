@@ -22,7 +22,7 @@ public class ApplicationUser {
 
     private String lastName;
 
-    private Boolean backupCodeActive;
+    private Boolean twoFactorAuthenticationActive;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
@@ -38,7 +38,7 @@ public class ApplicationUser {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.backupCodeActive = false;
+        this.twoFactorAuthenticationActive = false;
     }
 
     public long getId() {
@@ -93,11 +93,11 @@ public class ApplicationUser {
         this.backupCodes = backupCodes;
     }
 
-    public Boolean getBackupCodeActive() {
-        return backupCodeActive;
+    public Boolean getTwoFactorAuthenticationActive() {
+        return twoFactorAuthenticationActive;
     }
 
-    public void setBackupCodeActive(Boolean backupCodeActive) {
-        this.backupCodeActive = backupCodeActive;
+    public void setTwoFactorAuthenticationActive(Boolean twoFactorAuthenticationActive) {
+        this.twoFactorAuthenticationActive = twoFactorAuthenticationActive;
     }
 }

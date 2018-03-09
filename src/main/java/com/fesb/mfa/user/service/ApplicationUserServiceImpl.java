@@ -40,10 +40,16 @@ public class ApplicationUserServiceImpl implements ApplicationUserService {
     }
 
     @Override
-    public ApplicationUser updateBackupCodeActiveState(String username, Boolean state) {
+    public Boolean getTwoFactorAuthenticationActiveState(String username) {
+        ApplicationUser user = userRepository.findByUsername(username);
+        return user.getTwoFactorAuthenticationActive();
+    }
+
+    @Override
+    public ApplicationUser updateTwoFactorAuthenticationActiveState(String username, Boolean state) {
         ApplicationUser user = userRepository.findByUsername(username);
 
-        user.setBackupCodeActive(state);
+        user.setTwoFactorAuthenticationActive(state);
 
         userRepository.save(user);
 
@@ -51,20 +57,18 @@ public class ApplicationUserServiceImpl implements ApplicationUserService {
     }
 
     @Override
-    public ApplicationUser deleteBackupCode(String username, String code) {
+    public Boolean validateBackupCode(String username, String code) {
         ApplicationUser user = userRepository.findByUsername(username);
         Set<BackupCode> backupCodes = user.getBackupCodes();
         for (BackupCode backupCode : backupCodes) {
-            System.out.print("helloooo " + backupCode.getCode());
             if (backupCode.getCode().equals(code)) {
                 user.getBackupCodes().remove(backupCode);
-                System.out.print("YEEA");
-                break;
+                userRepository.save(user);
+                return true;
             }
         }
 
-        userRepository.save(user);
-
-        return user;
+        return false;
     }
+
 }
