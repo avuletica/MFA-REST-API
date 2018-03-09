@@ -9,6 +9,8 @@ public interface ApplicationUserService {
 
     Boolean validateBackupCode(String username, String code);
 
+    Boolean validateSecretQuestionAnswer(String username, String answer);
+
     Boolean getTwoFactorAuthenticationActiveState(String username);
 }
 

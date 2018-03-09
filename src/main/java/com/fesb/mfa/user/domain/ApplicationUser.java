@@ -22,6 +22,8 @@ public class ApplicationUser {
 
     private String lastName;
 
+    private String secretQuestionAnswer;
+
     private Boolean twoFactorAuthenticationActive;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -39,6 +41,7 @@ public class ApplicationUser {
         this.lastName = lastName;
         this.email = email;
         this.twoFactorAuthenticationActive = false;
+        this.setSecretQuestionAnswer("Kira");
     }
 
     public long getId() {
@@ -99,5 +102,13 @@ public class ApplicationUser {
 
     public void setTwoFactorAuthenticationActive(Boolean twoFactorAuthenticationActive) {
         this.twoFactorAuthenticationActive = twoFactorAuthenticationActive;
+    }
+
+    public String getSecretQuestionAnswer() {
+        return secretQuestionAnswer;
+    }
+
+    public void setSecretQuestionAnswer(String secretQuestionAnswer) {
+        this.secretQuestionAnswer = secretQuestionAnswer;
     }
 }

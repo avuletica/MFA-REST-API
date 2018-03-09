@@ -52,6 +52,11 @@ public class UserController {
         return applicationUserService.validateBackupCode(userName, code);
     }
 
+    @GetMapping("/validateSecretQuestionAnswer/{answer}/{userName}")
+    public Boolean validateSecretQuestionAnswer(@PathVariable String userName, @PathVariable String answer) {
+        return applicationUserService.validateSecretQuestionAnswer(userName, answer);
+    }
+
     @GetMapping("/twoFactorAuthenticationActiveState/{userName}")
     public Boolean twoFactorAuthenticationActiveState(@PathVariable String userName) {
         return applicationUserService.getTwoFactorAuthenticationActiveState(userName);

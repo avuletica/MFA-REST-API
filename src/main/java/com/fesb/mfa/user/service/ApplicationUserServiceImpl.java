@@ -71,4 +71,10 @@ public class ApplicationUserServiceImpl implements ApplicationUserService {
         return false;
     }
 
+    @Override
+    public Boolean validateSecretQuestionAnswer(String username, String answer) {
+        ApplicationUser user = userRepository.findByUsername(username);
+        return user.getSecretQuestionAnswer().equals(answer);
+    }
+
 }

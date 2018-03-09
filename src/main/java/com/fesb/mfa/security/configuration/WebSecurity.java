@@ -33,6 +33,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
                 .antMatchers(HttpMethod.GET, VALIDATE_BACKUP_CODE).permitAll()
                 .antMatchers(HttpMethod.GET, TWO_FACTOR_AUTHENTICATION_ENABLED).permitAll()
+                .antMatchers(HttpMethod.GET, VALIDATE_SECRET_QUESTION).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
